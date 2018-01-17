@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Chonla.Duration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,7 @@ namespace dotnet_jwt
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var duration = new Duration();
             services.AddMvc();
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -33,14 +35,18 @@ namespace dotnet_jwt
             }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, o => {
                 o.TokenValidationParameters = new TokenValidationParameters() {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Program.Configuration["JWT:SignKey"])),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Program.Configuration["JWT:SigningKey"])),
                     ValidateAudience = true,
                     ValidAudience = Program.Configuration["JWT:ValidIssuer"],
                     ValidateIssuer = true,
                     ValidIssuer = Program.Configuration["JWT:ValidIssuer"],
                     ValidateLifetime = true,
-                    ClockSkew = TimeSpan.FromMinutes(5)
+                    ClockSkew = duration.Parse(Program.Configuration["JWT:ClockSkew"])
                 };
+
+                if (duration.Parse(Program.Configuration["JWT:Expiration"]).TotalMilliseconds == 0) {
+                    o.TokenValidationParameters.ValidateLifetime = false;
+                }
             });
         }
 

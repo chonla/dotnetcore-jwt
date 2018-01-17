@@ -16,10 +16,8 @@ namespace dotnet_jwt
         public static void Main(string[] args)
         {
             var builder = new ConfigurationBuilder()
-                .AddInMemoryCollection(new Dictionary<string, string>(){
-                    ["JWT:SignKey"] = "ThisIsASuperConfidentialSigningKey",
-                    ["JWT:ValidIssuer"] = "http://localhost:5000/"
-                });
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
 
             BuildWebHost(args).Run();
