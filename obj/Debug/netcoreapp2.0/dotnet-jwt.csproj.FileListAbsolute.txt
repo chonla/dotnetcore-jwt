@@ -1,0 +1,10 @@
+/Users/chonla/work/tmp/dotnet-jwt/bin/Debug/netcoreapp2.0/dotnet-jwt.deps.json
+/Users/chonla/work/tmp/dotnet-jwt/bin/Debug/netcoreapp2.0/dotnet-jwt.runtimeconfig.json
+/Users/chonla/work/tmp/dotnet-jwt/bin/Debug/netcoreapp2.0/dotnet-jwt.runtimeconfig.dev.json
+/Users/chonla/work/tmp/dotnet-jwt/bin/Debug/netcoreapp2.0/dotnet-jwt.dll
+/Users/chonla/work/tmp/dotnet-jwt/bin/Debug/netcoreapp2.0/dotnet-jwt.pdb
+/Users/chonla/work/tmp/dotnet-jwt/obj/Debug/netcoreapp2.0/dotnet-jwt.csproj.CoreCompileInputs.cache
+/Users/chonla/work/tmp/dotnet-jwt/obj/Debug/netcoreapp2.0/dotnet-jwt.AssemblyInfoInputs.cache
+/Users/chonla/work/tmp/dotnet-jwt/obj/Debug/netcoreapp2.0/dotnet-jwt.AssemblyInfo.cs
+/Users/chonla/work/tmp/dotnet-jwt/obj/Debug/netcoreapp2.0/dotnet-jwt.dll
+/Users/chonla/work/tmp/dotnet-jwt/obj/Debug/netcoreapp2.0/dotnet-jwt.pdb
